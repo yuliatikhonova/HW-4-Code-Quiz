@@ -1,14 +1,30 @@
 body {
     background-color: lightgray;
+    pad: 0;
+    margin: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
     width: 600px;
+    max-width: 80%;
     height: 500px;
     margin: 0 auto;
-    padding: 10px 50px 50px 50px;
+    padding: 30px;
     border-radius: 50px;
     background-color: white;
+}
+
+#timer {
+
+}
+
+#intro {
+
 }
 
 #question {
@@ -16,10 +32,12 @@ body {
 }
 
 #answer {
-   margin-top: 30px; 
+   display: grid;
+   gap: 10px;
+   margin: 20px;
 }
 
-#btnA, #btnB, #btnC, #btnD {
+#btn {
     background-color: thistle;
     width: 250px;
     margin: 10px 40px 10px 0px;
@@ -34,7 +52,11 @@ body {
 
 }
 
-#btnA:hover, #btnB:hover, #btnC:hover, #btnD:hover {
+#btn:hover {
     cursor: pointer;
     background-color: pink;
+}
+
+.hide {
+    display: none;
 }
