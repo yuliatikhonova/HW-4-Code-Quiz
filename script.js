@@ -2,13 +2,17 @@ var question = document.querySelector("#question");
 var answer = document.querySelector("#answer");
 var grade = document.querySelector("#grade")
 var startBtn = document.querySelector("#start-btn");
-// var timer = document.querySelector("#time");
-
+var score = 0;
 var secondsLeft = 75;
+
 //-------------------------------------------------------------------
+//clicking the start button
+startBtn.addEventListener("click", function() { 
+    startQuiz();
+});
+
 //function when start button is pressed
 function startQuiz() {
-    
     setTimer();
 
 }
