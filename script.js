@@ -3,11 +3,13 @@ var answerBtn1 = document.querySelector(".btn1");
 var answerBtn2 = document.querySelector(".btn2");
 var answerBtn3 = document.querySelector(".btn3");
 var answerBtn4 = document.querySelector(".btn4");
-var grade = document.querySelector("#grade")
+// var grade = document.querySelector("#grade")
 var startBtn = document.querySelector("#start-btn");
 var intro = document.querySelector("#intro")
-var questionContainer = document.querySelector("#question-container")
-var final = document.querySelector("#final")
+var questionContainer = document.querySelector("#question-container");
+var final = document.querySelector("#final");
+var form = document.querySelector("#form");
+
 var score = 0;
 var secondsLeft = 75;
 var currentQuestion;
@@ -38,7 +40,7 @@ function setTimer() {
             questionContainer.classList.add("hide")
             final.classList.remove("hide")
         }
-    }, 1000);
+    }, 650);
 }
 
 //-------------------------------------------------------------------Taking the quiz
@@ -56,7 +58,7 @@ function goToNextQuestion(answerIndex) {
         score = score + 5;;
     }
     else {
-        secondsLeft = secondsLeft - 15;
+        secondsLeft = secondsLeft - 10;
     }
 
     if (questionIndex < 4) {
@@ -148,21 +150,34 @@ var questions = [
 
 //-------------------------------------------------------------------Final Section
 
+//------------------
+var highScore = [];
+var finalHighScore= document.querySelector("#highScore");
+var initialsInput = document.getElementById("initials").value;
+var turnIn = document.querySelector("#turnIn");
+//---------------------
+
 function showFinalSection() {
     final.classList.remove('hide')
+    form.classList.remove("hide")
     document.getElementById("finalScore").innerHTML = this.score;
+    
 }
+
+turnIn.addEventListener("click", showHighScore);
 
 
 
 //------------------------------------------------------------------- Show score and initials
-//function to show the score ask for initials
-// submitting the initials
-// show score and initials
 
-
-
-
-
-
+function showHighScore() {
+    final.classList.add('hide')
+    form.classList.add("hide")
+    finalHighScore.classList.remove('hide')
+    function callMe () {
+        var value = initialsInput;
+        console.log(value)
+    }
+    callMe()
+}
 

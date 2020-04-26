@@ -19,19 +19,27 @@ body {
     background-color: white;
 }
 
-#timer {
-
+h1 , h3, p {
+    text-align: center;
 }
 
-#intro {
+#start-btn {
+   margin: 270px;
+   position: absolute;
+   -ms-transform: translateY(-280%);
+   transform: translateY(-280%);
+}
 
+#timer {
+ background-color: white;
+ margin: 50px;
 }
 
 #question {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-#answer {
+#answer-btn {
    display: grid;
    gap: 10px;
    margin: 20px;
@@ -48,9 +56,6 @@ body {
     border-radius: 30px;
 }
 
-#grade {
-
-}
 
 #btn:hover {
     cursor: pointer;
