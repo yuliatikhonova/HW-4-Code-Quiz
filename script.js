@@ -36,11 +36,11 @@ function setTimer() {
 
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
-            secondsLeft.classList.add("hide");
+            timer.classList.add("hide");
             questionContainer.classList.add("hide");
             final.classList.remove("hide");
         }
-    }, 650);
+    }, 1000);
 }
 
 //-------------------------------------------------------------------Taking the quiz
