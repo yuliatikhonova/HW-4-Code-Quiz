@@ -15,7 +15,7 @@
         <section id="intro">
             <h1>Coding Quiz Challenge</h1>
             <br>
-            <h3>Details of the quiz</h3>
+            <h3>For this challenge your going to take a timed quiz. Its going to be a five question quiz. You will receive 5 point for the correct answer. But watch out, if you get it incorrectly, you will be subtracted 10 seconds of the timer. Your 75 second timer is going to start as soon as you hit "Start Quiz". In the end, you can submit your initials and get posted on the high score page.</h3>
             <button id="start-btn">Start Quiz</button>
         </section>
 
@@ -38,22 +38,15 @@
             <h1>All done</h1>
             <p>Final Score is:</p>
             <p id="finalScore"></p>
-        </section>
-        <form id="form" class="hide">
             <label for="initials">Input your initials here:</label><br>
-            <input type="text" id="initials" name="initials" ><br>
-            <input id="turnIn" type="submit" value="Submit">
-        </form>
-<!-- Input your initials here: -->
+            <input type="text" id="initials"><br>
+            <button id="turnIn" onclick="submitInitials()">Submit</button>
+        </section>
 
         <section id="highScore" class="hide">
             <h1>High Score!!!</h1>
-           
-            <!-- <p id="scoreText">
-
-            </p> -->
+            <p id="initialText"></p>
         </section>
-
 
     </main>
 

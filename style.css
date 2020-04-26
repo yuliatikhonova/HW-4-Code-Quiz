@@ -26,8 +26,8 @@ h1 , h3, p {
 #start-btn {
    margin: 270px;
    position: absolute;
-   -ms-transform: translateY(-280%);
-   transform: translateY(-280%);
+   -ms-transform: translateY(-780%);
+   transform: translateY(-780%);
 }
 
 #timer {

@@ -97,53 +97,53 @@ function showQuestions(passQuestion) {
 //Array for questions and answers
 var questions = [
     {
-        question: "1st question?",
+        question: "What are the symbols for surrounding values in an array?",
         id: 0,
         answers: [
-            { text: "yes", correct: true },
-            { text: "no", correct: false },
-            { text: "nope", correct: false },
-            { text: "nah", correct: false }
+            { text: "[]", correct: true },
+            { text: "{}", correct: false },
+            { text: "()", correct: false },
+            { text: "||", correct: false }
         ]
     },
     {
-        question: "2nd question?",
+        question: "How do we return a value from a function?",
         id: 1,
         answers: [
-            { text: "2nope", correct: false},
-            { text: "2no", correct: false },
-            { text: "2yes", correct: true },
-            { text: "2nah", correct: false }
+            { text: "By adding the value and then the return on the next line.", correct: false},
+            { text: "By doing nothing.", correct: false },
+            { text: "By adding the return keyword followed by the value to return.", correct: true },
+            { text: "By overthinking it", correct: false }
         ]
     },
     {
-        question: "3rd question?",
+        question: "Which type of value can a function return?",
         id: 2,
         answers: [
-            { text: "3no", correct: false },
-            { text: "3yes", correct: true },
-            { text: "3nope", correct: false },
-            { text: "3nah", correct: false }
+            { text: "Can only return strings.", correct: false },
+            { text: "Can return any type of value.", correct: true },
+            { text: "Can only return booleans.", correct: false },
+            { text: "Can only return numbers.", correct: false }
         ]
     },
     {
-        question: "4th question?",
+        question: "What value does prompt return?",
         id: 3,
         answers: [
-            { text: "4yes", correct: true },
-            { text: "4no", correct: false },
-            { text: "4nope", correct: false },
-            { text: "4nah", correct: false }
+            { text: "Can only return strings.", correct: true },
+            { text: "Can return any type of value.", correct: false },
+            { text: "Can only return booleans.", correct: false },
+            { text: "Can only return numbers.", correct: false }
         ]
     },
     {
-        question: "5th question?",
+        question: "What do you use console.log for?",
         id: 4,
         answers: [
-            { text: "5nah", correct: false },
-            { text: "5no", correct: false },
-            { text: "5nope", correct: false },
-            { text: "5yes", correct: true }
+            { text: "To pop an alert on the page.", correct: false },
+            { text: "To write code and save it.", correct: false },
+            { text: "To consult you.", correct: false },
+            { text: "To log a value on the console", correct: true }
         ]
     }
 ];
@@ -151,33 +151,28 @@ var questions = [
 //-------------------------------------------------------------------Final Section
 
 //------------------
-var highScore = [];
 var finalHighScore= document.querySelector("#highScore");
-var initialsInput = document.getElementById("initials").value;
 var turnIn = document.querySelector("#turnIn");
 //---------------------
 
 function showFinalSection() {
     final.classList.remove('hide')
-    form.classList.remove("hide")
     document.getElementById("finalScore").innerHTML = this.score;
     
 }
 
+function submitInitials () {
+    var initialsInput = document.getElementById("initials").value;
+    document.getElementById("initialText").innerHTML = initialsInput + "! with the Score of:"+ score;
+}
+
 turnIn.addEventListener("click", showHighScore);
-
-
 
 //------------------------------------------------------------------- Show score and initials
 
 function showHighScore() {
     final.classList.add('hide')
-    form.classList.add("hide")
     finalHighScore.classList.remove('hide')
-    function callMe () {
-        var value = initialsInput;
-        console.log(value)
-    }
-    callMe()
 }
+
 
