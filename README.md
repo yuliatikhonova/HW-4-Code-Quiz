@@ -9,13 +9,13 @@ We also had to make sure that a new question is presented when an answer is clic
 
 If the incorrect answer is chosen, then we were suppose to subtract time from the timer. For example:
 
-![Subtract time](https://user-images.githubusercontent.com/62128411/80317438-97478380-87b8-11ea-9293-5bebee58bf04.gif)
+![Subtract time](https://user-images.githubusercontent.com/62128411/80318177-07f09f00-87bd-11ea-9401-1907694c8b8c.gif)
 
 Then when all the questions are answered or the timer hits 0, the game needs to end. For example:
 
 ![Answered all the questions](https://user-images.githubusercontent.com/62128411/80317532-3f5d4c80-87b9-11ea-8b41-e3687dcb85b2.gif)
 
-![Time ran out](https://user-images.githubusercontent.com/62128411/80318052-518cba00-87bc-11ea-8bde-a4631cd32390.gif)
+![Ran out of Time](https://user-images.githubusercontent.com/62128411/80318207-4b4b0d80-87bd-11ea-81ca-db5086081e64.gif)
 
 When the game is over we can input our initials and put them on the high score board:
 
