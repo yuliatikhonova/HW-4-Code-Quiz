@@ -36,6 +36,7 @@ function setTimer() {
 
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
+            secondsLeft.classList.add("hide");
             questionContainer.classList.add("hide");
             final.classList.remove("hide");
         }
@@ -156,7 +157,6 @@ var turnIn = document.querySelector("#turnIn");
 
 function showFinalSection() {
     final.classList.remove('hide');
-    secondsLeft.classList.add("hide");
     document.getElementById("finalScore").innerHTML = this.score;
     
 }
