@@ -1,5 +1,4 @@
 var questionEl = document.querySelector("#question");
-// var answerBtnEl = document.querySelector("#answer-btn");
 var answerBtn1 = document.querySelector(".btn1");
 var answerBtn2 = document.querySelector(".btn2");
 var answerBtn3 = document.querySelector(".btn3");
@@ -21,7 +20,7 @@ function startQuiz() {
     setTimer();
     intro.classList.add("hide");
     questionContainer.classList.remove("hide");
-    showQuestions(questions[0]);
+    
 }
 
 //-------------------------------------------------------------------Timer
@@ -35,21 +34,41 @@ function setTimer() {
             clearInterval(timerInterval);
             questionContainer.classList.add("hide")
             final.classList.remove("hide")
-
-            //showScore and ask for initials
         }
     }, 1000);
 }
+// var highScore: []; //empty array to set the score and name
+
+//-------------------------------------------------------------------Taking the quiz
+
+function goToNextQuestion() {
+    
+    //if correct
+    //if incorrect
+    //go to the next question
+    //after last question go to final section
+}
+
+function correctAnswer() {
+    score = score + 5
+}
+
+function incorrectAnswer() {
+    secondsLeft = secondsLeft - 10
+}
+
+
 
 //------------------------------------------------------------------- Questions and Answers
-//Show the questions
-function showQuestions(passQuestion) {
+//Show the questions and answers
+function showQuestions(passQuestions) {
     questionEl.innerText = passQuestion.question;
     answerBtn1.innerText = passQuestion.answers[0].text;
     answerBtn2.innerText = passQuestion.answers[1].text;
     answerBtn3.innerText = passQuestion.answers[2].text;
     answerBtn4.innerText = passQuestion.answers[3].text;
 }
+
 
 //Array for questions and answers
 var questions = [
@@ -100,24 +119,16 @@ var questions = [
     }
 ];
 
-//Loop for the array---------------------------//answer check. If correct (count ++; by 5 points) else (secondsLeft --; by 10 sec). Tie it to the showScore
-// for (var i = 0; i < question.length; i++) {
-//     var response = window.___(question[i].___);
-//     if (response == question[i].answer) {
-//         score++; 5pt
-//         grade.----("Correct")
-//     } else {
-//         secondsLeft--; 10sec
-//         grade.----("Incorrect")
-//     }
-// }
+//-------------------------------------------------------------------Final Section
+
+function showFinalSection() {
+    
+}
+
+
 
 //------------------------------------------------------------------- Show score and initials
 //function to show the score ask for initials
-// function showScore(){
-
-// }
-
 // submitting the initials
 // show score and initials
 
