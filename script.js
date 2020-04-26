@@ -10,6 +10,7 @@ var questionContainer = document.querySelector("#question-container")
 var final = document.querySelector("#final")
 var score = 0;
 var secondsLeft = 75;
+var currentQuestion;
 
 //-------------------------------------------------------------------Start
 //clicking the start button
@@ -19,8 +20,9 @@ startBtn.addEventListener("click", startQuiz);
 function startQuiz() {
     setTimer();
     intro.classList.add("hide");
+    timer.classList.remove("hide");
     questionContainer.classList.remove("hide");
-    
+    setCurrentQuestion(0);
 }
 
 //-------------------------------------------------------------------Timer
@@ -32,36 +34,56 @@ function setTimer() {
 
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
+            secondsLeft.classList.add("hide")
             questionContainer.classList.add("hide")
             final.classList.remove("hide")
         }
     }, 1000);
 }
-// var highScore: []; //empty array to set the score and name
 
 //-------------------------------------------------------------------Taking the quiz
+//when clicking on the answer, go to the next question
+answerBtn1.addEventListener('click', function () { goToNextQuestion(0) });
+answerBtn2.addEventListener('click', function () { goToNextQuestion(1) });
+answerBtn3.addEventListener('click', function () { goToNextQuestion(2) });
+answerBtn4.addEventListener('click', function () { goToNextQuestion(3) });
 
-function goToNextQuestion() {
-    
-    //if correct
-    //if incorrect
-    //go to the next question
-    //after last question go to final section
+function goToNextQuestion(answerIndex) {
+
+    var questionIndex = getCurrentQuestionIndex();
+
+    if (questions[questionIndex].answers[answerIndex].correct === true){
+        score = score + 5;;
+    }
+    else {
+        secondsLeft = secondsLeft - 15;
+    }
+
+    if (questionIndex < 4) {
+        setCurrentQuestion(questionIndex + 1);
+    }
+    else {
+        questionContainer.classList.add("hide");
+        timer.classList.add("hide");
+        showFinalSection()
+    }
 }
 
-function correctAnswer() {
-    score = score + 5
+// sets what the next question will be from the current questions index
+function setCurrentQuestion(index) {
+    currentQuestion = questions[index];
+    showQuestions(questions[index]);
 }
 
-function incorrectAnswer() {
-    secondsLeft = secondsLeft - 10
+// gets the current question index from id field in the questions object
+function getCurrentQuestionIndex() {
+    return currentQuestion.id;
 }
-
 
 
 //------------------------------------------------------------------- Questions and Answers
 //Show the questions and answers
-function showQuestions(passQuestions) {
+function showQuestions(passQuestion) {
     questionEl.innerText = passQuestion.question;
     answerBtn1.innerText = passQuestion.answers[0].text;
     answerBtn2.innerText = passQuestion.answers[1].text;
@@ -74,6 +96,7 @@ function showQuestions(passQuestions) {
 var questions = [
     {
         question: "1st question?",
+        id: 0,
         answers: [
             { text: "yes", correct: true },
             { text: "no", correct: false },
@@ -83,24 +106,27 @@ var questions = [
     },
     {
         question: "2nd question?",
+        id: 1,
         answers: [
-            { text: "2yes", correct: true },
+            { text: "2nope", correct: false},
             { text: "2no", correct: false },
-            { text: "2nope", correct: false },
+            { text: "2yes", correct: true },
             { text: "2nah", correct: false }
         ]
     },
     {
         question: "3rd question?",
+        id: 2,
         answers: [
-            { text: "3yes", correct: true },
             { text: "3no", correct: false },
+            { text: "3yes", correct: true },
             { text: "3nope", correct: false },
             { text: "3nah", correct: false }
         ]
     },
     {
         question: "4th question?",
+        id: 3,
         answers: [
             { text: "4yes", correct: true },
             { text: "4no", correct: false },
@@ -110,11 +136,12 @@ var questions = [
     },
     {
         question: "5th question?",
+        id: 4,
         answers: [
-            { text: "5yes", correct: true },
+            { text: "5nah", correct: false },
             { text: "5no", correct: false },
             { text: "5nope", correct: false },
-            { text: "5nah", correct: false }
+            { text: "5yes", correct: true }
         ]
     }
 ];
@@ -122,7 +149,8 @@ var questions = [
 //-------------------------------------------------------------------Final Section
 
 function showFinalSection() {
-    
+    final.classList.remove('hide')
+    document.getElementById("finalScore").innerHTML = this.score;
 }
 
 
